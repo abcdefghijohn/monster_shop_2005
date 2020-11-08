@@ -1,0 +1,7 @@
+<h1> All My Discounts </h1>
+<% @discounts.each do |discount| %>
+<ul type = "1">
+  <li> Discount Percentage: <%= discount.discount_percent %>%<br>
+      Minimum Quantity: <%= discount.min_quantity %> items</li>
+</ul>
+<% end %>
