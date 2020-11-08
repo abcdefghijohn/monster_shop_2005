@@ -10,23 +10,18 @@ Merchant.destroy_all
 Item.destroy_all
 
 #merchants
-10.times do
-  Merchant.create(
-                  name: Faker::Name.name,
-                  address: Faker::Address.street_address,
-                  city: Faker::Address.city,
-                  state: Faker::Address.state,
-                  zip: Faker::Address.zip,
-                )
-end
-# bike_shop = Merchant.create(name: "Someone's Bike Shop", address: '123 Bike Rd.', city: 'Denver', state: 'CO', zip: 80203)
-# dog_shop = Merchant.create(name: "Brian's Dog Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
-# meg_shop = Merchant.create!(name: "Meg's Bike Shop", address: '123 Bike Rd.', city: 'Denver', state: 'CO', zip: 80203)
-# cat_shop = Merchant.create(name: "Brian's Cat Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
-# mouse_shop = Merchant.create(name: "Brian's Mouse Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
-# giraffe_shop = Merchant.create(name: "Brian's Giraffe Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
-# hippo_shop = Merchant.create(name: "Brian's Hippo Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
-# penguin_shop = Merchant.create(name: "Brian's Penguin Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
+bike_shop = Merchant.create(name: "Someone's Bike Shop", address: '123 Bike Rd.', city: 'Denver', state: 'CO', zip: 80203)
+dog_shop = Merchant.create(name: "Brian's Dog Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
+meg_shop = Merchant.create!(name: "Meg's Bike Shop", address: '123 Bike Rd.', city: 'Denver', state: 'CO', zip: 80203)
+cat_shop = Merchant.create(name: "Brian's Cat Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
+mouse_shop = Merchant.create(name: "Brian's Mouse Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
+giraffe_shop = Merchant.create(name: "Brian's Giraffe Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
+hippo_shop = Merchant.create(name: "Brian's Hippo Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
+penguin_shop = Merchant.create(name: "Brian's Penguin Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
+
+#discounts
+discount_1 = meg_shop.discounts.create(discount_percent: 5, min_quantity: 5)
+discount_2 = meg_shop.discounts.create(discount_percent: 10, min_quantity: 10)
 
 #users
 jake = User.create!(name: 'Jake',

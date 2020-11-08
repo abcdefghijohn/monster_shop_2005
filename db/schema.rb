@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_11_08_031838) do
     t.string "name"
     t.string "description"
     t.integer "price"
-    t.string "image"
+    t.string "image", default: "https://www.monsterchildren.com/wp-content/uploads/2020/02/nic-cage-monster-children-1068x571.jpg"
     t.boolean "active?", default: true
     t.integer "inventory"
     t.bigint "merchant_id"
