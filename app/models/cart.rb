@@ -33,8 +33,27 @@ class Cart
 
   def total
     @contents.sum do |item_id,quantity|
-      Item.find(item_id).price * quantity
+      if quantity_met?(item_id, quantity)
+        discounted_total(item_id, quantity)
+      else
+        Item.find(item_id).price * quantity
+      end
     end
   end
 
+  def discounted_total(item_id, quantity)
+    item = Item.find(item_id)
+    applicable_discounts = item.merchant.discounts.find_all do |discount|
+      discount.min_quantity <= quantity
+    end
+    greatest_discount = applicable_discounts.max_by { |discount| discount.discount_percent}
+    (item.price * quantity) - ((item.price * quantity) * (greatest_discount.discount_percent * 0.01))
+  end
+
+  def quantity_met?(item_id, quantity)
+    item = Item.find(item_id)
+    item.merchant.discounts.any? do |discount|
+      quantity >= discount.min_quantity
+    end
+  end
 end
