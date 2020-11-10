@@ -49,5 +49,18 @@ RSpec.describe 'Cart apply discount' do
       expect(page).to have_content(150)
     end
 
+    it 'I will receive the larger discount' do
+      within "#cart-item-#{@paper.id}" do
+        9.times do
+          click_on('+')
+        end
+      end
+      within "#cart-item-#{@pencil.id}" do
+        9.times do
+          click_on('+')
+        end
+      end
+      expect(page).to have_content(170)
+    end
   end
 end
