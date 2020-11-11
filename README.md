@@ -1,15 +1,9 @@
 # Monster Shop
 [Project Link](https://monster-shop-jjgg.herokuapp.com/)
 
-## Contributors
-* [Garrett Cottrell](https://github.com/GarrettCottrell)
-* [Greg Mitchell](https://github.com/GregJMitchell)
-* [Jake Heft](https://github.com/jakeheft)
-* [John Kim](https://github.com/abcdefghijohn)
-
 ## Background and Description
 
-"Monster Shop" is a fictitious e-commerce platform where users can register to place items into a shopping cart and 'check out'. Users who work for a merchant can mark their items as 'fulfilled'; the last merchant to mark items in an order as 'fulfilled' will be able to get "shipped" by an admin. Each user role will have access to some or all CRUD functionality for application models.
+"Monster Shop" is a fictitious e-commerce platform where users can register to place items into a shopping cart and 'check out'. Users who work for a merchant can mark their items as 'fulfilled'; the last merchant to mark items in an order as 'fulfilled' will be able to get "shipped" by an admin. Each user role will have access to some or all CRUD functionality for application models. Also bulk discount full CRUD functionality has been added to merchant employees.
 
 ## Setup
 
@@ -28,6 +22,7 @@ This project requires Rails 5.2.4.3.
 
 ### Rails
 * Create routes for namespaced routes
+* Database relationships
 * Use Sessions to store information about a user and implement login/logout functionality
 * Use filters (e.g. `before_action`) in a Rails controller
 * Limit functionality to authorized users
