@@ -20,6 +20,17 @@ class Merchant::DiscountsController < Merchant:: BaseController
     end
   end
 
+  def edit
+    @discount = Discount.find(params[:id])
+  end
+
+  def update
+    @discount = Discount.find(params[:id])
+    @discount.update(discount_params)
+    @discount.save
+    redirect_to merchant_discounts_path
+  end
+
   private
   def discount_params
     params.permit(:discount_percent, :min_quantity)
