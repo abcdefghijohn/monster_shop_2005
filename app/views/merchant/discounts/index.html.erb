@@ -1,8 +1,11 @@
 <h1> All My Discounts </h1>
 <% @discounts.each do |discount| %>
-<ul type = "1">
+<section id = "discount-<%= discount.id %>">
+<ul>
   <li> Discount Percentage: <%= discount.discount_percent %>%<br>
       Minimum Quantity: <%= discount.min_quantity %> items</li>
+  <%= button_to "Edit Discount", "/merchant/discounts/#{discount.id}/edit", method: "get" %>
 </ul>
+</section>
 <% end %>
 <h3 align="center"><%= link_to 'Create New Discount', new_merchant_discount_path  %></h3>
