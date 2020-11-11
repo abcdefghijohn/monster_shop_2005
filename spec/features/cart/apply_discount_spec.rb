@@ -9,7 +9,7 @@ RSpec.describe 'Cart apply discount' do
       @tire = @mike.items.create(name: "Gatorskins", description: "They'll never pop!", price: 100, image: "https://www.rei.com/media/4e1f5b05-27ef-4267-bb9a-14e35935f218?size=784x588", inventory: 12)
       @paper = @mike.items.create(name: "Lined Paper", description: "Great for writing on!", price: 20, image: "https://cdn.vertex42.com/WordTemplates/images/printable-lined-paper-wide-ruled.png", inventory: 30)
       @pencil = @meg.items.create(name: "Yellow Pencil", description: "You can write on paper with it!", price: 10, image: "https://images-na.ssl-images-amazon.com/images/I/31BlVr01izL._SX425_.jpg", inventory: 100)
-      user = @mike.users.create(name: 'JakeBob',
+      user = User.create(name: 'JakeBob',
                                address: '124 Main St',
                                city: 'Denver',
                                state: 'Colorado',
