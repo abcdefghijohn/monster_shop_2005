@@ -32,7 +32,11 @@ RSpec.describe 'Delete discount' do
         and no longer see the discount" do
       within "#discount-#{@discount_2.id}" do
       click_button("Delete Discount")
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> d512fc936408511bce1464fc1943e13a455eaa51
       @discount_2.reload
       expect(page).not_to have_content(@discount_2.discount_percent)
       expect(page).not_to have_content(@discount_2.min_quantity)

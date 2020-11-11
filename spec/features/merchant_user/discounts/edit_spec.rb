@@ -36,7 +36,11 @@ RSpec.describe 'Edit discount' do
       fill_in :min_quantity, with: 15
 
       click_on("Update Discount")
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> d512fc936408511bce1464fc1943e13a455eaa51
       @discount_2.reload
       expect(page).to have_content(15)
     end
