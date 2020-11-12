@@ -30,17 +30,13 @@ RSpec.describe 'Delete discount' do
     end
     it "I can edit then click 'Delete Discount' and I am redirected to the discount index
         and no longer see the discount" do
-      within "#discount-#{@discount_2.id}" do
-      click_button("Delete Discount")
-<<<<<<< HEAD
 
-=======
-      
->>>>>>> d512fc936408511bce1464fc1943e13a455eaa51
-      @discount_2.reload
+      within "#discount-#{@discount_2.id}" do
+        click_button("Delete Discount")
+      end
+
       expect(page).not_to have_content(@discount_2.discount_percent)
       expect(page).not_to have_content(@discount_2.min_quantity)
-    end
     end
   end
 end

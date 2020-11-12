@@ -56,4 +56,26 @@ RSpec.describe Cart do
       expect(@cart.subtotal(@giant)).to eq(100)
     end
   end
+
+  describe "Helper Methods" do
+    before :each do
+      @megan = Merchant.create!(name: 'Megans Marmalades', address: '123 Main St', city: 'Denver', state: 'CO', zip: 80218)
+      @ogre = @megan.items.create!(name: 'Ogre', description: "I'm an Ogre!", price: 20, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaLM_vbg2Rh-mZ-B4t-RSU9AmSfEEq_SN9xPP_qrA2I6Ftq_D9Qw', inventory: 5 )
+      @giant = @megan.items.create!(name: 'Giant', description: "I'm a Giant!", price: 50, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaLM_vbg2Rh-mZ-B4t-RSU9AmSfEEq_SN9xPP_qrA2I6Ftq_D9Qw', inventory: 2 )
+      @cart = Cart.new({
+        @ogre.id.to_s => 11,
+        @giant.id.to_s => 2,
+        })
+      @discount_1 = @megan.discounts.create(discount_percent: 50, min_quantity: 5)
+    end
+
+    it '.quantity_met?()' do
+      expect(@cart.quantity_met?(@ogre.id, 11)).to eq(true)
+      expect(@cart.quantity_met?(@giant.id, 2)).to eq(false)
+    end
+
+    it '.discounted_total' do
+      expect(@cart.discounted_total(@ogre.id, 11)).to eq(110)
+    end
+  end
 end

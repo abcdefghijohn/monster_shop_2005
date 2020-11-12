@@ -32,7 +32,8 @@ Rails.application.routes.draw do
   namespace :merchant do
     resources :orders, only: %i[show]
     resources :items
-    resources :discounts, only: %i[index show update destroy new create edit]
+    resources :discounts, except: %i[put]
+
   get "/", to: "dashboard#show"
   patch "/itemorders/:itemorder_id", to: "item_orders#update"
   post "/items/deactivate", to: "items#deactivate"

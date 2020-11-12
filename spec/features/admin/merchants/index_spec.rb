@@ -62,7 +62,10 @@ describe "As an admin when I visit the admin's merchant index page" do
       visit "/admin/merchants"
       expect(page).to have_button("Disable")
 
-      click_button "Disable"
+      within("#merchant-#{mike.id}") do
+        click_button "Disable"
+      end
+
       expect(page).to have_content("Merchant Account Is Now Disabled")
     end
   end
@@ -93,9 +96,11 @@ describe  "As an admin, when I visit the merchant index page"  do
       fill_in :email, with: "JBob1234@hotmail.com"
       fill_in :password, with: "heftybags"
       click_button "Login"
-
       visit "/admin/merchants"
-      click_button "Disable"
+
+      within("#merchant-#{@mike.id}") do
+        click_button "Disable"
+      end
 
       expected = mike.items.all? {|item| item.active? == false }
       expect(expected).to eq(true)
@@ -131,8 +136,10 @@ describe "As an admin when I visit the merchant index page" do
       click_button "Login"
 
       visit "/admin/merchants"
-      click_button "Disable"
-      click_button "Enable"
+      within("#merchant-#{mike.id}") do
+        click_button "Disable"
+        click_button "Enable"
+      end
 
       expected = mike.items.all? {|item| item.active? == true }
       expect(expected).to eq(true)

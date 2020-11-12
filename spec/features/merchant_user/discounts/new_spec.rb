@@ -26,11 +26,7 @@ RSpec.describe 'Merchant Discount New' do
       fill_in :password, with: 'heftybags'
       click_button 'Login'
     end
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> d512fc936408511bce1464fc1943e13a455eaa51
     it 'I see a link to create a new discount' do
       click_on("My Discounts")
       expect(page).to have_link("Create New Discount")
